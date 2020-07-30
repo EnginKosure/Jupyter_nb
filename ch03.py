@@ -1,2 +1,2 @@
 def amplify(num):
-    return [x*10 if x % 4 == 0 else x for x in range(1, num+1)]
+    return [x if x % 4 else x*10 for x in range(1, num+1)]
