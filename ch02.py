@@ -9,8 +9,9 @@
 
 
 def consecutive_combo(lst1, lst2):
-    n_l = lst1+lst2
-    return [i for i in n_l if len(n_l) == n_l[-1]-n_l[0]-1]
+    n_l = sorted(lst1+lst2)
+    print(n_l)
+    return all([True for i in n_l if len(n_l) == n_l[-1]-n_l[0]+1])
 
 
 print(consecutive_combo([7, 4, 5, 1], [2, 3, 6]))
