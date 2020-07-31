@@ -8,6 +8,10 @@
 def calculate_PT(st):
     PT = {}
     x = st.split(' ')  # ['A', '0', '-', '1', 'B']
+    a, _, b, _, _, _, c, _, d = st
+    PAY = {}
+    PAY[a] = b
+    PAY[d] = c
     if x[1] > x[3]:
         PT[x[0]] = 3
         PT[x[4]] = 0
@@ -18,10 +22,11 @@ def calculate_PT(st):
     else:
         PT[x[4]] = 3
         PT[x[0]] = 0
+    print('PAY', PAY)
     return PT
 
 
-calculate_PT("A 0 - 1 B")
+# calculate_PT("A 0 - 1 B")
 y = ["A 0 - 1 B", "C 2 - 0 D", "B 2 - 2 C",
      "D 3 - 1 A", "A 2 - 2 C", "B 2 - 0 D"]
 calc_Total = list(map(calculate_PT, y))
@@ -41,5 +46,3 @@ for i in range(len(cc)):
         dd[tuple(cc[i].keys())] += list(cc[i].values())[0]
 
 print('dd', dd)
-# dm = list(map(lambda x: sum(dd[x]), dd))
-# print(dm)
