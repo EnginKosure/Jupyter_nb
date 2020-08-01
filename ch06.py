@@ -28,6 +28,13 @@ def calculate_PAY(st):
     PAY[d] = c
     return PAY
 
+# def calculate_GS(st):
+#     a, _, b, _, _, _, c, _, d = st
+#     GS = {}
+#     GS[a] = b
+#     GS[d] = c
+#     return GS
+
 
 # calculate_PT("A 0 - 1 B")
 y = ["A 0 - 1 B", "C 2 - 0 D", "B 2 - 2 C",
@@ -43,6 +50,7 @@ print('cc', cc)
 pay_pay = [{k: int(v)}
            for k, v in [(k, v) for x in PAY_Total for (k, v) in x.items()]]
 print('pay_pay', pay_pay)
+#[{'A': 0}, {'B': 1}, {'C': 2}, {'D': 0}, {'B': 2}, {'C': 2}, {'D': 3}, {'A': 1}, {'A': 2}, {'C': 2}, {'B': 2}, {'D': 0}]
 
 # print('ff', ff)
 dd = {}
