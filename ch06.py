@@ -28,12 +28,13 @@ def calculate_PAY(st):
     PAY[d] = c
     return PAY
 
-# def calculate_GS(st):
-#     a, _, b, _, _, _, c, _, d = st
-#     GS = {}
-#     GS[a] = b
-#     GS[d] = c
-#     return GS
+
+def calculate_GS(st):
+    a, _, b, _, _, _, c, _, d = st
+    GS = {}
+    GS[a] = int(b)-int(c)
+    GS[d] = int(c)-int(b)
+    return GS
 
 
 # calculate_PT("A 0 - 1 B")
@@ -41,9 +42,13 @@ y = ["A 0 - 1 B", "C 2 - 0 D", "B 2 - 2 C",
      "D 3 - 1 A", "A 2 - 2 C", "B 2 - 0 D"]
 calc_Total = list(map(calculate_PT, y))
 PAY_Total = list(map(calculate_PAY, y))
+GS_Total = list(map(calculate_GS, y))
+
 print(calc_Total)
-print(PAY_Total)
 # [{'B': 3, 'A': 0}, {'C': 3, 'D': 0}, {'B': 1, 'C': 1}, {'D': 3, 'A': 0}, {'A': 1, 'C': 1}, {'B': 3, 'D': 0}]
+print(PAY_Total)
+# [{'A': '0', 'B': '1'}, {'C': '2', 'D': '0'}, {'B': '2', 'C': '2'}, {'D': '3', 'A': '1'}, {'A': '2', 'C': '2'}, {'B': '2', 'D': '0'}]
+print('GS_TOTAL', GS_Total)
 cc = [{k: v} for k, v in [(k, v) for x in calc_Total for (k, v) in x.items()]]
 # cc [{'B': 3}, {'A': 0}, {'C': 3}, {'D': 0}, {'B': 1}, {'C': 1}, {'D': 3}, {'A': 0}, {'A': 1}, {'C': 1}, {'B': 3}, {'D': 0}]
 print('cc', cc)
@@ -51,6 +56,11 @@ pay_pay = [{k: int(v)}
            for k, v in [(k, v) for x in PAY_Total for (k, v) in x.items()]]
 print('pay_pay', pay_pay)
 #[{'A': 0}, {'B': 1}, {'C': 2}, {'D': 0}, {'B': 2}, {'C': 2}, {'D': 3}, {'A': 1}, {'A': 2}, {'C': 2}, {'B': 2}, {'D': 0}]
+
+gs_gs = [{k: int(v)}
+         for k, v in [(k, v) for x in GS_Total for (k, v) in x.items()]]
+print('gs_gs', gs_gs)
+
 
 # print('ff', ff)
 dd = {}
@@ -72,3 +82,13 @@ for i in range(len(pay_pay)):
         gg[tuple(pay_pay[i].keys())] += list(pay_pay[i].values())[0]
 
 print('gg', gg)
+
+gs = {}
+for i in range(len(pay_pay)):
+    print(gs_gs[i])
+    if tuple(gs_gs[i].keys()) not in gs:
+        gs[tuple(gs_gs[i].keys())] = list(gs_gs[i].values())[0]
+    else:
+        gs[tuple(gs_gs[i].keys())] += list(gs_gs[i].values())[0]
+
+print('gs', gs)
