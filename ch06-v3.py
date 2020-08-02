@@ -68,5 +68,3 @@ def tournament_scores(y):
 
 tournament_scores(["A 2 - 1 B", "C 3 - 0 D", "B 1 - 1 C",
                    "D 1 - 0 A", "A 3 - 0 C", "B 2 - 4 D"])
-# [ [ "A", 6, 5, 3 ], [ "D", 6, 5, 0 ], [ "C", 4, 4, 0 ], [ "B", 1, 4, -3 ] ]
-# Final order is A, D, C, B (A and D have same points and same number of scored goals, but A has a greater goals difference than D).
