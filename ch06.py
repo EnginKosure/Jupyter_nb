@@ -98,7 +98,6 @@ def tournament_scores(y):
     c1 = ['C', dd[('C',)], gg[('C',)], gs[('C',)]]
     d1 = ['D', dd[('D',)], gg[('D',)], gs[('D',)]]
     nihai = list([a1, b1, c1, d1])
-    # sorted_n = sorted(nihai, key=lambda l: l[::-1], reverse=True)
     sorted_n = sorted(nihai, key=lambda x: (x[1], x[2], x[3]), reverse=True)
 
     print(nihai)
