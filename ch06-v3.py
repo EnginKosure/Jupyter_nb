@@ -1,3 +1,6 @@
+# https://edabit.com/challenge/KETgxWCWtrk7oLM49
+
+
 def tournament_scores(y):
 
     def calculate_PT(st):
