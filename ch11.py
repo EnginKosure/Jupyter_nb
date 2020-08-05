@@ -16,18 +16,31 @@
 #         return 'Draw'
 
 
+# def tic_tac_toe(board):
+#     for i in board:
+#         if len(set(i)) == 1:
+#             return i[0]
+#     for i in list(zip(*board)):
+#         print('ZIP', i)
+#         if len(set(i)) == 1:
+#             return i[0]
+#     if len({board[i][i] for i in range(3)}) == 1:
+#         return board[0][0]
+#     if len({board[i][2-i] for i in range(3)}) == 1:
+#         return board[0][2]
+#     return 'Draw'
+
+
 def tic_tac_toe(board):
-    for i in board:
-        if len(set(i)) == 1:
-            return i[0]
-    for i in list(zip(*board)):
-        print('ZIP', i)
-        if len(set(i)) == 1:
-            return i[0]
-    if len({board[i][i] for i in range(3)}) == 1:
-        return board[0][0]
-    if len({board[i][2-i] for i in range(3)}) == 1:
-        return board[0][2]
+    d1, d2 = [], []
+    for i in range(3):
+        col = [board[0][i], board[1][i], board[2][i]]
+        if len(set(board[i])) == 1:
+            return board[i][0]
+        d1 += [board[i][i]]
+        d2 += [board[i][2-i]]
+    if len(set(d1)) == 1:
+        return d1[0]
     return 'Draw'
 
 
