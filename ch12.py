@@ -10,21 +10,33 @@ class Pagination:
     def __init__(self, items=[], pageSize=10):
         self.items = items
         self.pageSize = pageSize
-        self.totalPages = 0
+        self.totalPages = len(items)//pageSize+1
         self.currentPage = 0
 
     def getItems(self):
-        pass
+        return self.items
 
     def getPageSize(self):
-        pass
+        return self.pageSize
 
     def getCurrentPage(self):
-        pass
-        # Goes to the previous page
+        return self.currentPage
 
-    def prevPage():
-        pass
+        # Goes to the previous page
+    def prevPage(self):
+        self.currentPage -= 1
+
+    def nextPage(self):
+        self.currentPage += 1
+
+    def firstPage(self):
+        self.currentPage = 0
+
+    def lastPage(self):
+        self.currentPage = self.totalPages
+
+    def goToPage(self, pageNum):
+        self.currentPage = pageNum
 
     def getVisibleItems(self):
         pass
