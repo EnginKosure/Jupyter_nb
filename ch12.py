@@ -14,10 +14,22 @@ class Pagination:
         self.currentPage = 0
 
     def getItems(self):
+        pass
 
     def getPageSize(self):
+        pass
 
     def getCurrentPage(self):
-
+        pass
         # Goes to the previous page
+
     def prevPage():
+        pass
+
+    def getVisibleItems(self):
+        pass
+
+
+alphabetList = "abcdefghijklmnopqrstuvwxyz".split('')
+
+p = Pagination(alphabetList, 4)
