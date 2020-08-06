@@ -1,17 +1,10 @@
-# The pagination class will accept 2 parameters:
-
-# items (default: []): A list of contents to paginate.
-
-# pageSize (default: 10): The amount of items to show in each page.
-
-
 class Pagination:
 
     def __init__(self, items=[], pageSize=10):
         self.items = items
-        self.pageSize = pageSize
+        self.pageSize = int(pageSize)
         self.totalPages = len(items)//pageSize+1
-        self.currentPage = 0
+        self.currentPage = 1
 
     def getItems(self):
         return self.items
@@ -22,26 +15,43 @@ class Pagination:
     def getCurrentPage(self):
         return self.currentPage
 
-        # Goes to the previous page
     def prevPage(self):
-        self.currentPage -= 1
+        if self.currentPage != 1:
+            self.currentPage -= 1
+        return self
 
     def nextPage(self):
-        self.currentPage += 1
+        if self.currentPage != self.totalPages:
+            self.currentPage += 1
+        return self
 
     def firstPage(self):
-        self.currentPage = 0
+        self.currentPage = 1
+        return self
 
     def lastPage(self):
         self.currentPage = self.totalPages
+        return self
 
     def goToPage(self, pageNum):
-        self.currentPage = pageNum
+        if 1 < int(pageNum) <= self.totalPages:
+            self.currentPage = int(pageNum)
+        elif int(pageNum) <= 1:
+            self.currentPage = 1
+        else:
+            self.currentPage = self.totalPages
+        return self
 
     def getVisibleItems(self):
-        pass
+        return self.items[(self.currentPage-1)*self.pageSize:self.currentPage*self.pageSize]
 
 
-alphabetList = "abcdefghijklmnopqrstuvwxyz".split('')
+alphabetList = list("abcdefghijklmnopqrstuvwxyz")
 
 p = Pagination(alphabetList, 4)
+
+print(p.getVisibleItems())  # ["a", "b", "c", "d"]
+p.nextPage()
+print(p.getVisibleItems())  # ['e', 'f', 'g', 'h']
+p.lastPage()
+print(p.getVisibleItems()  # ["y", "z"]
