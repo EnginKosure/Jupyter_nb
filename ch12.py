@@ -3,7 +3,8 @@ class Pagination:
     def __init__(self, items=[], pageSize=10):
         self.items = items
         self.pageSize = int(pageSize)
-        self.totalPages = len(items)//pageSize+1
+        self.totalPages = (len(items)//pageSize) + \
+                           (1 if len(items) % pageSize else 0)
         self.currentPage = 1
 
     def getItems(self):
