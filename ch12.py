@@ -22,11 +22,13 @@ class Pagination:
     def prevPage(self):
         if self.currentPage != 1:
             self.currentPage -= 1
+        # self.currentPage = max(self.currentPage - 1, 1)
         return self
 
     def nextPage(self):
         if self.currentPage != self.totalPages:
             self.currentPage += 1
+        # self.currentPage = min(self.currentPage + 1, self.totalPages)
         return self
 
     def firstPage(self):
@@ -44,6 +46,7 @@ class Pagination:
             self.currentPage = 1
         else:
             self.currentPage = self.totalPages
+        # self.currentPage = max(min(int(page), self.totalPages), 1)
         return self
 
     def getVisibleItems(self):
