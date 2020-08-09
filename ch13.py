@@ -14,8 +14,7 @@ class Game:
             for i in range(self.mines//10):
                 for j in range(self.mines//4):
                     self.board[i][j].mine = True
-                    self.board[i][j].row = i
-                    self.board[i][j].col = j
+                    self.board[i][j].neighbors = 1
                     x += 1
 
     def set_position(self):
@@ -32,7 +31,7 @@ class Cell:
     def __init__(self):
         self.open = False
         self.mine = False
-        self.neighbor = 0
+        self.neighbors = 0
         self.flag = False
         self.row = 0
         self.col = 0
