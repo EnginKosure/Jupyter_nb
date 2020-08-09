@@ -3,13 +3,12 @@ class Game:
         self.rows = rows
         self.cols = cols
         self.mines = mines
-        self.board = [[]]
+        self.board = [Cell() for _ in range(rows*cols)]
 
 
 class Cell:
 
     def __init__(self):
-        self.displayCharacter = displayCharacter
         self.open = False
         self.mine = False
         self.neighbor = 0
