@@ -3,7 +3,28 @@ class Game:
         self.rows = rows
         self.cols = cols
         self.mines = mines
-        self.board = [Cell() for _ in range(rows*cols)]
+        self.board = [[Cell() for _ in range(self.cols)]
+                      for _ in range(self.rows)]
+        self.set_mine()
+        self.set_position()
+
+    def set_mine(self):
+        x = 0
+        while x <= self.mines:
+            for i in range(self.mines//10):
+                for j in range(self.mines//4):
+                    self.board[i][j].mine = True
+                    self.board[i][j].row = i
+                    self.board[i][j].col = j
+                    x += 1
+
+    def set_position(self):
+        for i in range(self.rows):
+            for j in range(self.cols):
+                self.board[i][j].row = i
+                self.board[i][j].col = j
+
+    # all(i.neighbors == sum(b[x][y].mine for x, y in [(i.row+x, i.col+y) for x, y in [(x, y) for x in range(-1, 2) for y in range(-1, 2) if x or y]] if 0 <= x < r and 0 <= y < c) for i in lst)
 
 
 class Cell:
