@@ -8,11 +8,17 @@
 #     return result
 
 
+# def round_number(num, n):
+#     div, mod = divmod(num, n)
+#     if mod >= n/2:
+#         return div * n + n
+#     return div * n
+
+
 def round_number(num, n):
-    div, mod = divmod(num, n)
-    if mod >= n/2:
-        return div * n + n
-    return div * n
+    mn = num//n*n
+    mx = mn+n
+    return mx if num-mn >= mx-num else mn
 
 
 print(round_number(33, 25))  # ➞ 25
