@@ -1,11 +1,7 @@
 class IceCream:
-
-    def __init__(self, flavor, sweetness):
-        self.value = {'Plain': 0, 'Vanilla': 5, 'ChocolateChip': 5,
-                      'Strawberry': 10, 'Chocolate': 10}
+    def __init__(self, flavor, num_sprinkles):
         self.flavor = flavor
-        self.sweetness = sweetness
-        self.total = self.value[self.flavor]+self.sweetness
+        self.num_sprinkles = num_sprinkles
 
 
 ice1 = IceCream("Chocolate", 13)         # value of 23
@@ -16,8 +12,10 @@ ice5 = IceCream("ChocolateChip", 3)      # value of 8
 
 
 def sweetest_icecream(lst):
-    total_l = list(map(lambda x: x.total, lst))
-    return max(total_l)
+    value = {'Plain': 0, 'Vanilla': 5, 'ChocolateChip': 5,
+             'Strawberry': 10, 'Chocolate': 10}
+    # return max(map(lambda x: value[x.flavor]+x.num_sprinkles, lst))
+    return max(i.num_sprinkles + value[i.flavor] for i in lst)
 
 
 print(sweetest_icecream([ice1, ice2, ice3, ice4, ice5]))  # ➞ 23
