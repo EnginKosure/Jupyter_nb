@@ -9,7 +9,6 @@ def process_workbook(filename):
     for row in range(2, sheet.max_row+1):
         cell = sheet.cell(row, 3)
         corrected_price = cell.value*0.9
-        print(corrected_price)
         corrected_new_val = sheet.cell(row, 4)
         corrected_new_val.value = corrected_price
 
@@ -19,3 +18,6 @@ def process_workbook(filename):
     chart.add_data(values)
     sheet.add_chart(chart, 'e2')
     wb.save(filename)
+
+
+process_workbook('transactions.xlsx')
