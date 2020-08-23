@@ -5,23 +5,28 @@
 
 # [int, str, bool, list, tuple, dict]
 
+# def count_datatypes(*args):
+#     my_list = [0, 0, 0, 0, 0, 0]
+#     for i in args:
+#         if type(i) == int:
+#             my_list[0] += 1
+#         elif type(i) == str:
+#             my_list[1] += 1
+#         elif type(i) == bool:
+#             my_list[2] += 1
+#         elif type(i) == list:
+#             my_list[3] += 1
+#         elif type(i) == tuple:
+#             my_list[4] += 1
+#         elif type(i) == dict:
+#             my_list[5] += 1
+#     print(my_list)
+#     return my_list
+
+
 def count_datatypes(*args):
-    my_list = [0, 0, 0, 0, 0, 0]
-    for i in args:
-        if type(i) == int:
-            my_list[0] += 1
-        elif type(i) == str:
-            my_list[1] += 1
-        elif type(i) == bool:
-            my_list[2] += 1
-        elif type(i) == list:
-            my_list[3] += 1
-        elif type(i) == tuple:
-            my_list[4] += 1
-        elif type(i) == dict:
-            my_list[5] += 1
-    print(my_list)
-    return my_list
+    lst = [type(i) for i in args]
+    return [lst.count(i) for i in (int, str, bool, list, tuple, dict)]
 
 
 count_datatypes(1, 45, "Hi", False)  # ➞ [2, 1, 1, 0, 0, 0]
