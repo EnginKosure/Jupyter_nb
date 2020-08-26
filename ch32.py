@@ -1,8 +1,17 @@
 # Create a function that takes a string txt and censors any word from a given list
-# lst. The text removed must be replaced by the given character char.
+# The text removed must be replaced by the given character char.
 
-# ➞ "----- is - Wednesday!"
+
+def censor_string(s, l, r):
+    for i in s.split():
+        if i in l:
+            s = s.replace(i, r*len(i))
+    print(s)
+    return s
+
+
 censor_string("Today is a Wednesday!", ["Today", "a"], "-")
+# ➞ "----- is - Wednesday!"
 
 # "The *** jumped **** the moon.")
 censor_string("The cow jumped over the moon.", ["cow", "over"], "*"),
