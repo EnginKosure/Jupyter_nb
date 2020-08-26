@@ -15,7 +15,7 @@ import requests
 import json
 api_url = 'https://api.binance.com/api/v3/ticker/price?symbol='
 coin = input(
-    "Which coin do you buy enter 'e' for etherium, 'b' for Bitcoin  : ")
+    "Which coin do you buy enter 'e' for Etherium, 'b' for Bitcoin : ")
 coin = 'ETHUSDT' if coin == 'e' else 'BTCUSDT'
 count_of_coin = int(input(f"How many {coin} will you buy : "))
 result = requests.get(api_url+coin)
