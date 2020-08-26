@@ -1,11 +1,18 @@
 # Create a function that takes a string txt and censors any word from a given list
 # The text removed must be replaced by the given character char.
 
+import re
+
 
 def censor_string(s, l, r):
-    for i in s.split():
-        if i in l:
-            s = s.replace(i, r*len(i))
+    # for i in s.split():
+    #     if i in l:
+    #         s = s.replace(i, r*len(i))
+    # print(s)
+    # return s
+    for i in l:
+        if ' '+i.lower() in s:
+            s = re.sub(i.lower(), r*len(i), s)
     print(s)
     return s
 
