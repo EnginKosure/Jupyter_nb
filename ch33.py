@@ -2,6 +2,11 @@
 # A majority vote is an element that occurs > N/2 times in a list
 # (where N is the length of the list).
 
+
+def majority_vote(l):
+    return sorted(l, key=lambda x: (counts[x], x))[0]
+
+
 majority_vote(["A", "A", "B"])  # ➞ "A"
 
 majority_vote(["A", "A", "A", "B", "C", "A"])  # ➞ "A"
