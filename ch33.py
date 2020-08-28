@@ -4,11 +4,16 @@
 
 
 def majority_vote(l):
-    return sorted(l, key=l.count)[0]
+    a = sorted([l.count(i) for i in l], reverse=True)
+    a = set(a)
+    print(a)
+    if len(a) == 1:
+        return None
+    return sorted(l, key=l.count, reverse=True)[0]
 
 
-majority_vote(["A", "A", "B"])  # ➞ "A"
+print(majority_vote(["A", "A", "B"]))  # ➞ "A"
 
-majority_vote(["A", "A", "A", "B", "C", "A"])  # ➞ "A"
+print(majority_vote(["A", "A", "A", "B", "C", "A"]))  # ➞ "A"
 
-majority_vote(["A", "B", "B", "A", "C", "C"])  # ➞ None
+print(majority_vote(["A", "B", "B", "A", "C", "C"]))  # ➞ None
