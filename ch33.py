@@ -4,7 +4,7 @@
 
 
 def majority_vote(l):
-    return sorted(l, key=lambda x: (counts[x], x))[0]
+    return sorted(l, key=l.count)[0]
 
 
 majority_vote(["A", "A", "B"])  # ➞ "A"
