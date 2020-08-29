@@ -7,7 +7,7 @@ def majority_vote(l):
     a = sorted([l.count(i) for i in l], reverse=True)
     a = set(a)
     print(a)
-    if len(a) == 1:
+    if len(a) == 1 or len(a) == 0:
         return None
     return sorted(l, key=l.count, reverse=True)[0]
 
