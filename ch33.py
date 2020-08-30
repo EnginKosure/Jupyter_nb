@@ -18,4 +18,4 @@ print(majority_vote(["A", "A", "B"]))  # ➞ "A"
 
 print(majority_vote(["A", "A", "A", "B", "C", "A"]))  # ➞ "A"
 
-print(majority_vote(["A", "B", "B", "A", "C", "C", 'C']))  # ➞ None
+print(majority_vote(["A", "B", "B", "A", "C", "C", 'C']))  # ➞ 'C'
