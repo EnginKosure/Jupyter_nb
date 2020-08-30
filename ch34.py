@@ -29,13 +29,29 @@ def binary_search(arr, left, right, elem):
         return False
 
 
+def binary_search1(lst, left, right, elem):
+    while lst:
+        x = len(lst)//2
+        if lst[x] == elem:
+            return True
+        elif lst[x] > elem:
+            lst = lst[:x]
+        else:
+            lst = lst[x+1:]
+    return False
+
+
 arr = [0, 1, 2, 3, 4, 5, 6, 7,
        8, 9, 10]
 elem = 7
 
 print(binary_search(arr, 0, len(arr)-1, 7))  # ➞ True
 
-# binary_search([1, 11, 14, 15, 32, 64, 67, 88, 92, 94], left, right, 12) ➞ False
+arr1 = [1, 11, 14, 15, 32, 64, 67,
+        88, 92, 94]
+elem1 = 12
+print(binary_search1([1, 11, 14, 15, 32, 64, 67,
+                      88, 92, 94], 0, len(arr1)-1, elem1))  # ➞ False
 
 # binary_search([3, 6, 9, 12, 15, 18, 21, 24, 27, 30], left, right, 27) ➞ True
 # Notes
