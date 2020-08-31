@@ -4,8 +4,10 @@
 def pentagonal(n):
     if n == 1:
         return 1
-    else:
-        return 5*(n-1)+pentagonal(n-1)
+    return 5*(n-1)+pentagonal(n-1)
+
+# def pentagonal(num):
+# 	return num*(num-1)*5/2+1
 
 
 print(pentagonal(1))  # ➞ 1
