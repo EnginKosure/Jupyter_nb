@@ -11,8 +11,14 @@ def find_product(l):
     prod = 1
     for i in l:
         prod *= i
+
     x = [int(prod/i) for i in l]
     print(x)
 
 
+def myproducts(nums):
+    return [int("".join(map(str, eval(str(i).replace(',', '*'))))) for i in [[nums[j] for j in range(len(nums)) if i != j] for i in range(len(nums))]]
+
+
 find_product([1, 2, 3, 4, 5])
+print(myproducts([3, 2, 1]))
