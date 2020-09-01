@@ -20,5 +20,15 @@ def myproducts(nums):
     return [int("".join(map(str, eval(str(i).replace(',', '*'))))) for i in [[nums[j] for j in range(len(nums)) if i != j] for i in range(len(nums))]]
 
 
+def myproducts1(nums):
+    def multiply(lst):
+        result = 1
+        for i in lst:
+            result *= i
+        return result
+    return [multiply([nums[j] for j in range(len(nums)) if i != j]) for i in range(len(nums))]
+
+
 find_product([1, 2, 3, 4, 5])
 print(myproducts([3, 2, 1]))
+print(myproducts1([3, 2, 1]))
