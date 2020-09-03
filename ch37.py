@@ -11,24 +11,14 @@
 # You free the prisoner in the 7th cell - and you are done!
 
 
-def free(l):
-    f = 0
-    for i in l:
-        if i == 1:
-            f += 1
-            l = [1 if i == 0 else 0 for i in l]
-            print(l)
-        if i == 0:
-            continue
-
-    print(f)
-    return f
+def free(prison):
+    return sum([1 if prison[i] != prison[i-1] else 0 for i in range(1, len(prison))]) + 1 if prison[0] == 1 else 0
 
 
-free([1, 1, 0, 0, 0, 1, 0])  # ➞ 4
+print(free([1, 1, 0, 0, 0, 1, 0]))  # ➞ 4
 
-free([1, 1, 1])  # ➞ 1
+print(free([1, 1, 1]))  # ➞ 1
 
-# print(free([0, 0, 0]))  # ➞ 0
+print(free([0, 0, 0]))  # ➞ 0
 
-# free([0, 1, 1, 1])  # ➞ 0
+print(free([0, 1, 1, 1]))  # ➞ 0
