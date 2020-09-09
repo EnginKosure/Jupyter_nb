@@ -53,4 +53,4 @@ def steps(n):
 # steps(6)
 # unique_way(10)
 # unique_way(9)
-print(steps(7))
+print(steps(4))
