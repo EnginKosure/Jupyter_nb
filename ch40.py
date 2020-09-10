@@ -11,11 +11,11 @@ def longest(s, k):
     long = ''
     for i in range(len(s)):
         for j in range(i + 1, len(s) + 1):
-            substring1 = s[i:j]
-            if len(set(substring1)) > k:
+            sub = s[i:j]
+            if len(set(sub)) > k:
                 break
-            if len(substring1) > len(long):
-                long = substring1
+            if len(sub) > len(long):
+                long = sub
     return long
 
 
