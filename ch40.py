@@ -23,6 +23,8 @@ def longest(s, k):
         i + 1, len(s) + 1) if len(set(list(s[i:j]))) <= k], key=len)[-1]
 
 
-s = "abcba"
+# s = "abcba"
+# k = 2
+s = 'aabebcdcscd'
 k = 2
 print(longest(s, k))
