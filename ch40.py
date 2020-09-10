@@ -5,3 +5,20 @@
 # that contains at most k distinct characters.
 # For example, given s = "abcba" and k = 2,
 # the longest substring with k distinct characters is "bcb".
+
+
+def longest(s, k):
+    long = ''
+    for i in range(len(s)):
+        for j in range(i + 1, len(s) + 1):
+            substring1 = s[i:j]
+            if len(set(substring1)) > k:
+                break
+            if len(substring1) > len(long):
+                long = substring1
+    return long
+
+
+s = "abcba"
+k = 2
+print(longest(s, k))
